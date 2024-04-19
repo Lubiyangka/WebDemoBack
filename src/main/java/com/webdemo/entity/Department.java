@@ -1,21 +1,28 @@
 package com.webdemo.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "department")
-public class Department implements Serializable {
+public class Department {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "name")
+
+    @Column(name = "name", nullable = false)
     private String name;
+
     @Column(name = "last_time")
-    private LocalDate lastTime;
-    @Column(name = "deleted")
+    private LocalDateTime lastTime;
+
+    @Column(name = "deleted", nullable = false)
     private Boolean deleted;
+
 }

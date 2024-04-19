@@ -25,4 +25,9 @@ public class Department {
     @Column(name = "deleted", nullable = false)
     private Boolean deleted;
 
+
+    @PreUpdate
+    protected void updateLastTime(){
+        this.lastTime = LocalDateTime.now();
+    }
 }
